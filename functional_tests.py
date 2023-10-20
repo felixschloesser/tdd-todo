@@ -24,7 +24,7 @@ class NewVisitortest(unittest.TestCase):
         self.assertIn("To-Do", header_text)
 
         # She is invited to enter a to-do item straight away
-        inputbox = self.browser.find_element(By.ID, "input_new_item")
+        inputbox = self.browser.find_element(By.ID, "new_item")
         self.assertEqual(
             inputbox.get_attribute("placeholder"), "What do you want to do?"
         )
@@ -38,7 +38,7 @@ class NewVisitortest(unittest.TestCase):
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
-        table = self.browser.find_element(By.ID, "table_list")
+        table = self.browser.find_element(By.ID, "item_list")
         rows = table.find_elements(By.TAG_NAME, "tr")
 
         rows_contains_text = any(row.text == "1: Buy peacock feathers" for row in rows)
