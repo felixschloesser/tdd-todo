@@ -14,8 +14,8 @@ class NewVisitortest(unittest.TestCase):
         self.browser.quit()
 
     def check_for_row_in_table(self, row_text):
-        table = self.browser.find_element(By.ID, "list_table")
-        rows = table.find_element(By.TAG_NAME, "tr")
+        table = self.browser.find_element(By.ID, "item_list")
+        rows = table.find_elements(By.TAG_NAME, "tr")
         self.assertIn(row_text, [row.text for row in rows])
 
     def test_can_start_a_doto_list(self):
