@@ -20,7 +20,7 @@ class NewVisitortest(unittest.TestCase):
 
     def test_can_start_a_doto_list(self):
         # Edith has heard about a cool new online to-do app.
-        # She dies to check out its home page
+        # She decides to check out its home page
         self.browser.get("http://localhost:8000")
 
         # She notices the page title and header mention to-do lists
@@ -42,7 +42,7 @@ class NewVisitortest(unittest.TestCase):
         # "1: Buy peacock feathers" as an item in a to-do lists
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        self.check_for_row_in_table("1: Buy peackock feathers")
+        self.check_for_row_in_table("1: Buy peacock feathers")
 
         # The is still a text box inviting her to add another item.
         # She enters "Use peacock feathers to make a fly"
@@ -53,7 +53,7 @@ class NewVisitortest(unittest.TestCase):
         time.sleep(1)
 
         # The page updates again, and now shwos both items on her list
-        self.check_for_row_in_table("1: Buy pecock feathres")
+        self.check_for_row_in_table("1: Buy peacock feathers")
         self.check_for_row_in_table("2: Use peacock feathers to make a fly")
 
         # Satisfied, she goes back to sleep
