@@ -3,7 +3,7 @@
   <body>
     <h1>To-Do list</h1>
     <form method="POST">
-        <input id="new_item" name="item_text" placeholder="What do you want to do?">
+        <input id="new_item_input" name="item_text" placeholder="What do you want to do?">
         {% csrf_token %}
     </form>
     <table id="item_list">
