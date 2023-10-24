@@ -1,3 +1,4 @@
+from os import wait
 from django.test import LiveServerTestCase
 
 from selenium import webdriver
