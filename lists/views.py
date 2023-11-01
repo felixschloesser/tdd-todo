@@ -8,12 +8,20 @@ def home(request) -> HttpResponse:
     return render(request, "home.html")
 
 
-def list(request) -> HttpResponse:
-    items = Item.objects.all()
-    return render(request, "list.html", {"items": items})
+def list(request, list_id) -> HttpResponse:
+    our_list = List.objects.get(id=list_id)
+    return render(request, "list.html", {"list": our_list})
 
 
 def new_list(request) -> HttpResponse:
     new_list = List.objects.create()
-    Item.objects.create(text=request.POST["item_text"], list=new_list)
-    return redirect("/lists/the-only-list-in-the-world/")
+    item_text = request.POST["item_text"]
+    Item.objects.create(text=item_text, list=new_list)
+    return redirect(f"/lists/{ new_list.id }/")
+
+
+def add_item(request, list_id) -> HttpResponse:
+    our_list = List.objects.get(id=list_id)
+    item_text = request.POST["item_text"]
+    Item.objects.create(text=item_text, list=our_list)
+    return redirect(f"/lists/{ our_list.id }/")
