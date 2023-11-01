@@ -1,9 +1,8 @@
-from django.urls import path
+from django.urls import path, include
 
-from lists import views
+from lists import views as list_views
 
 urlpatterns = [
-    path("", views.home, name="home"),
-    path("lists/new", views.new_list, name="new_list"),
-    path("lists/the-only-list-in-the-world/", views.list, name="list_view"),
+    path("", list_views.home, name="home"),
+    path("lists/", include("lists.urls")),
 ]
