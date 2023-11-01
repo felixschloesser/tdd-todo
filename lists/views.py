@@ -14,10 +14,10 @@ def list(request, list_id) -> HttpResponse:
 
 
 def new_list(request) -> HttpResponse:
-    new_list = List.objects.create()
+    our_list = List.objects.create()
     item_text = request.POST["item_text"]
-    Item.objects.create(text=item_text, list=new_list)
-    return redirect(f"/lists/{ new_list.id }/")
+    Item.objects.create(text=item_text, list=our_list)
+    return redirect(f"/lists/{ our_list.id }/")
 
 
 def add_item(request, list_id) -> HttpResponse:
