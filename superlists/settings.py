@@ -16,22 +16,14 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# If DJANGO_DEBUG is not set exactly to "True", it will be False
+DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "changeme")
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+CSRF_TRUSTED_ORIGINS = os.environ.get(
+    "DJANGO_CSRF_TRUSTED_ORIGINS", "localhost,127.0.0.1"
+).split(",")
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", "changeme")
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
-ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = [
-    "http://todo.staging.felixschloesser.de",
-    "http://localhost:8000",
-]
 
 # Application definition
 
