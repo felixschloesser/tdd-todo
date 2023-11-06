@@ -28,7 +28,10 @@ DEBUG = True
 
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["http://*"]
+CSRF_TRUSTED_ORIGINS = [
+    "http://todo.staging.felixschloesser.de",
+    "http://localhost:8000",
+]
 
 # Application definition
 
